@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="week10.css">
+    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.css">
+    
+</head>
+<body class="bg-secondary conatiner-fluid">
+    <!-- this is the background color of the whole webpage as well as making it extend the full width of the page-->
+
+    <div>
+        <h1 class="text-center bkg light pt-4 pb-4">Create Your Ultimate Destiny Team</h1>
+    </div>
+    <hr>
+  <!--this puts a line in it and  creates the title as well as the places the background image behind the title from the CSS page-->
+    <di class="p-5 m-5">
+        <p class="text-center fs-4 fw-bold p-2 m-5">
+            Welcome to the team finder. This website was created to help those who have a hard time finding a team for the raids, dungeons, or just hard to beat missions. 
+            Input your information below and add your player to the roster. Include what type of Play style your are as well as what you are looking to run.<br>
+            <u>example: Support player looking for help in raids and dungeons.</u><br>
+            <u>example: Front line fighter needing help on last mission of Lightfall Campaign</u><br>
+            Once you have entered your characters and even your friends characters click the submit button to look for people like you looking for the same thing. They can then join your team and 
+            you can finally start taking on those harder missions.
+        </p>
+          <!--This creates the intro telling you what the webpage is about and also stylizes it the way i wanted it to be styled-->
+    </di>
+    <h3 class="fs-2 text-center light"><u>Create Your Team Here</u></h3>
+      <!--this adds another line and the title for the table where you create your own team -->
+    <hr>
+      <!--This contains the divs and the elements that will create the table information.
+    it creates the container that holds them all in as well as the two text boxes for information input the 2 drop down menus that allow the user to select from the 3 options
+     then the 4 options and then it allows you to select the add button that then adds it to the table-->
+    <div class="container">
+        <form class="d-flex gap-3">
+            <input type="text" class="form-control" id="nameBox"/>
+            <select id="classSelect" class="btn btn-primary dropdown-toggle">
+                <option>Warlock</option>
+                <option>Titan</option>
+                <option>Hunter</option>
+            </select>
+            <select id="roleSelect" class="btn btn-primary dropdown-toggle">
+                <option>Support</option>
+                <option>Damage</option>
+                <option>Tank</option>
+                <option>Sniper</option>
+            </select>
+            <input type="text" class="form-control" id="playStyle"/>
+            <button type="submit" class="btn btn-primary"  onclick="addToTable(event)">Add</button>
+
+        </form>
+    </div>
+    <div>
+        <table class="table table-striped table-bordered table-dark table-hover">
+            <thead>
+                <th>Player Name</th>
+                <th>Player Class</th>
+                <th>Player Role</th>
+                <th>Play Style</th>
+            </thead>
+            <tbody id="teamTable">
+
+            </tbody>
+        </table>
+    </div>
+    <hr>
+      <!--this is a little header that tells you to click the button created below it in order to start your adventure and upload your information-->
+    <h3 class="text-center">Click below once your team is ready and start your adventure </h3>
+    <div class="text-center">
+        <button type="submit" class="btn btn-primary">Start Your Adventure</button>
+    </div>
+
+       <!--this is the footer as well as a footer image that show up at the bottom of the page-->
+    <hr>
+    <footer class="text-center fw-bolder fs-3">Good Luck Guardian and May the Traveler Watch Over You!</footer>
+    <div class="text-center"><img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHCBUVFRgVFRYYGRgaGhwZHBwcHBocHBoaGBgcHhwYGhwdIzAlHh4rIRkaJjgmKy80NTU1GiQ7QDs0Py40NTEBDAwMDw8QGBERGDEdGCExNDQ0MTQ0MTExMTE0MTE/NDE0MTQ0NDQ0NDQ0NDQxNDQxMTQxPzQxNDQ/MT8xNDQxMf/AABEIAOEA4QMBIgACEQEDEQH/xAAcAAACAgMBAQAAAAAAAAAAAAAAAQIDBAYHBQj/xABDEAABAwIDBAgDBgQEBQUAAAABAAIRITEDEkEEUWFxBQYTIoGRofCxwdEHMkKC4fEkUmJyFJKywiNDY6KzMzRzg7T/xAAYAQEBAQEBAAAAAAAAAAAAAAAAAQIDBP/EABwRAQEBAQEBAQEBAAAAAAAAAAABETECIVESA//aAAwDAQACEQMRAD8A5iXbx73pAAXnySn3EptBP4fT0XpcgGq/CgNgzHL8QtPgXeai1picut60TYeGlxpzoguxcNmVji8lzpDxH3YtzVLWA1BBjhUclYWZyABrTeBU0sNyHbO9t9ROlQZrQ0ogpc+bUjnx+ZKieHvwUw21D6+nqhzKDlx8/wB1MECKiOXyTDCDBP77uXFHDy04Kc8BWlp3eVoUVMstpWJIob+Cg3T4WTN59LXiaaKTW6Gfeoogg8H0GvAKst4q8tnStKzSw/VUOKgeSffvelkINB5pOfooklRU3QJAmOIgwpZjHDTwUM80J/RDbibBagcqQfp6+9FVm3wpB8e/RaZWHcJKgXRYmbID7k61inv9lWXU4SpaK3JBScdFEqVoEpFOfFRUDLjEaTKGNmgHHyUU1GjyHh5hCihEXR793V2HQfXRRy6yrCNOHqujCzAFQSYAg3reoA81ezZDrQAb4mJpPl6qrAbBoQSDeAJ4A+NlA4p09KTSNEGTiGBW9w40JBJ8RuVD3kiLmQSa5jehJvcpDGuOQ40mt/c8lAunw80BF605fRLOa+/3UjF5/Thz+qsidx9PXW6Cjl8VMOtX3xhDgNPDeDXXwKi5+6B8ran4oJ/Dl74JdodfQ1OsndopOxHPaA7Sg8fmqmjxWVXufvO4zUm1dbXVTmnjNr621TJEwK24So+H7IE4EUJN7KLQCQHExwvZN1KJZSSANVBEO4nXx90UzhuyZ5pMXrPJVuYQY8Ew1FIOO8+ZU63rG+u6UiyPrp6pFxiJoqhZjvSB4/HckSpsZSTakmJgGk+qBO0Fj6wYI/edVAkzWfNTxKk19INhpJ+KgWopEnihzTE6Gdd3BKE3sjUGmnwQJpFZE0ooKxzYpQ8q3APmoEIulKE8qENZYPCkesV13qTBPv8ARLsCAHaGYrWl5Cl4TF/e76rTAJsI53v48kspJ8J97hRKYIqDY8K/NNtre+KBZLX4fsgeCboKiQgGmPDx9Cph/H3bTwUIUXOAvA5oLQ46nj9UwKjU7h6ADioYbhFDyit71FlkbM2oNaVNQKTAId4+CCL7EekVpv3KLRz3KzafvEwQDUTeD42uqgPkgC35fAKKk4W5D4KbXNAIIqYg/wAu+mqyqk+/JKD7hSI01v4cki1BEKXZmJghu/TUwl4J5zaYG6THkgHBsAAHNWePL18lUQN+isiKqtxaLkA7igMkGt9ynlcBO/fqDMcxQ8KBQc8uMzO8zNlJzjlAJtpuv+iCsCbIIMe/eik0xXVQKBgpZZt5aoVmE8tMi6CmEQrHFRAQRhCaEGWWWvF/W0q7GY0ZchzUBJiKm7YO5J1JgyK1IiRJApeu7SVGTF+VfcLoyRB9xuUGmsD2LV8CrXH503e/oq8qYLAy5poLjeKDfT57lAt10vWEity+zroUY2K7HeAWYJblESHYhq07oaO9zybipfkWfVvVzqC57e12nO0ES3CaQ1xBsXuP3aGQ29pLZW/dH9D7PgUwsHDZuhjS6OL3DMa7ybrOjX6+96TmA34a7rWXC21pi7VsOFi52YuExwgQXMYT3pmCRSKea1Hpz7P8J/e2V/ZvqezcXOY6oHdJJcyJFTmaJE5VuOzDv4tZ7zafy9xtB6nxXn7TsuI7bcHEbkyMw3tfL354xbEYeWB3mRmmtZsElsHHOkNkxMF5w8ZjmPAmHbtCDZzZ1BIusdd66Q6OwtoZkxmNe29Qe6dSwggtPEFcZ6y9Ht2fasXBZmLGFuUuIJh2G18Gmhea8luetMeYTZBO9SawkgASTAFqza63jYPs6xSJx8ZrCfwsbnNLS4kCeU81bZEaYdpd2fZZWZc+eYGfNly5c98usKgj3Rb3t/2cva0uwcdryBOV7ckxucC4eYHNaTtmzPw3uw8RhY9tC0iCLwTw42SWUxjwsjYtkxMV4w8JjnvNmtqfHQDiYCy+gNgbj7Tg4LyQzEflJbAdlAJMEgxZdn6L6OwNnZkwWNY38UVLiP53GrjzKnq4uNO6D+ztjYftT87qf8NhIY3+54q/8sDiVumxdG4GC0DCwcNg/pY0esSfElZEj9eB47kpA4Fx3VMDhupU2nksbowOlei8DEY/tMHCf3XEEsbmEN0cKzOoK0jrR1ADc79iJcWiXYDjmcG1g4biZdY911TFCbLomMAWuBMAtIJGkiJ8JVrnH47708tfRJcHzoAgsW9faT0GMN7dpYO7iEteNBiRIfGmcA+LeK0ghdJ9SjBflMwDG+t6JABJwQTK0IvAQ4aH381blpy4DX1UHO3en7LIXZ/3eRQo5R/MPI/RCLjNZBgRWpqaRSIj82p0sm1lvlcC3h5LHDiII9ngr8N0XAI+Ee7Lqxitzt+njMnUpZlZtLYNxZooIB7okinmdTKraAkQnDyXYeoOytZsWG4NAOJne4wJJzuDZOsNAAXIi030r6XXVuouP2mwsaxwa9jn4cwHR3w8CDeWvA/Zc/8ATjUbQ6tJi1uEUr5cieacEH3fwGvyXn7F0mMR2JDHNZhvyZnCA8wO8yYlkECdfjnPBtJBEaXiCRUbgVyaVYbDnedDk84IP+1TDn56xky0Fc2cOMkn7uWMsa3UcFsl/P8A2ixWJ1f25+Ps7MZ4YDiAvDWGQ1jnHI0kj7wEA8ZQemuN9eD/AB+0f3Yf/gwvouwl0VNP1t8QuQddv/f7R/cz/wDPhK+erW1dRuhWs2Z20Ob38UEtdMFuG2waQZBL2ZiZFMu5bo+SDBAO+JjXW9/VeP1cH8Ds4F/8Ph6SatEkDxPivXJMHS9YmKmKa0/ZS9RIOvF514mT6WWqfaH0O3F2c44EvwRmmlcPM0Pad4aDnG7K7etrB03e/YWD09B2bHaYrhYlDr3Hcd8JOjk/Uw/x+zf3n/Q9dolca6nub/jdnof/AFD/AKHrsL8xjLFZkk1b3XQ4CCHHNlEUoSdIN9dWLbiIqvK6bxsVgazBblfiZiXuDQxjWBufFfmNXAQG31kGIWQdne5obiPkFgD2sbkDyQQ+SZcGkkQGuFqkyp7JsbMIZcJjWNNcrGtY0EVsBczc1oLKIodtAfgZxZ2GHChAggZiCQLSbwaWheg+a+PJY+11Y8GTIjTWBeLV1rdXm/vjdB4PXfZu02HHB/C1rxzw3h5/7Q4eK42uw9d9qybDiyKvDcMCbl7wHafyNefBcfF6mByn9108T4lVOTLd25SY0k8N6T70HDyWgZKe/eqIFaaU86nn9UNCll4KUivs/wCoIU8nuU1BBvNWtcGu4ViRpoSK8FULRNj4V19AovJiNy3otfigioFgBAAty8zqSo5lUx2ikrqYtz/p+q2bqX1gGzYpbiOPY4kNcTMYbgTleBuEkHgZ0WrBu/3xTLTYXn3Czfs+nHduldiZtGE7DxJLHZXUeWhwDmvb3xJyy1tRwhVPxn4TmsDGswGtkve8QxrS0u7pdQBrnGZ/5bzBls8z6s9bMXZAMN04mCDRhMOZeThuOmuU05XXT+iOk8HaWZ8F+ZtiKgtMRBZPd+fFcrLG9PoraO0a54NHOBIrcMgtIO40kXyrLYGiCBqbCkz3py0u26xdiZldiySSXydA0ZaAflg76jcrcPaWOe9jXML2gFzQ5peAZylwFQLRO9RFLujg9haMbHaTiPfnbiQ9rnl0tkCCxuYgMIIGUc1yjrG8u2rFLmvYe4IxYzjLg4bZflkZjGbxC7IuPdbcVr9ux3sIe0lkOa4Fp/4GGKOEg1EeCvnq107qwP4PZYP/ACcPx7g3jxXpjl8PmvJ6sU2LZT/0cPjdgH0XqF9QPppE8dR5qXqE2ROYjwoAORNNNVi9Nn+Gx9R2WJ/od9FmZvjHpyosLps/w+NxwsX/AMb/AHVByzqgP47Z/wD5D/ocV1+c0ihEZSJkzWQdLRxXIeqI/jdn3dp/scuvyteurD1056/sk93CfdkcFFr94rE/C50N6AmyyhbQQGmhOup/EKT424Kx45Um8xY34LzOntuZg4D34hABAAqAXElvdaLuNzG4XC591m624m05mMBw8EmraZ3j/qEWH9ApvJWvPm+i3C689PDacRrMMzhYcgEUD3kQ543tABa08XGzlq7hoRX6j6KeqTnRUb12zIxqs+7qAbWfiVIoEnioq5rdYlDh7Ci3kJ90+KscaXryF90mqzRXn5+Y+iEZeCFBjA0ohw91mZ1/RQBEV5RuhNzreH7rTRJ59dfY8VBqTlNF3aH01VjKg8reP6eqxs3wTY9NF7XGVn9G9I4mA8YmE8scB4OGrXts5p3fC681rhqf3jXgrWmnx8ApqOw9V+n2bU1xAy4k5nsm0Na0ObNS0keFjpPtdmwFzsol0FxyiXFoABOpIAAHJcM2HbX4T24mG4tewy035gixBsQbrsXV/plm1YQxGgBw7r2TJY+lBvaQZB3eKx6mKyej8TGccQ4zGsAxXjCymS7CbAY939RqdKEUouUdaNk7La8ZgJID2uBIaJ7RjXmjQABmeaAWXXu9uGs1Jse6JgceVqrRPtE6OIezaG2IGG8ie65suYY4guH5RvV836tbX1Wd/BbNwwmD/K3KfUFenM2kU3DX5jyWi9Q+nGtb/hsR2XvF2E42JdE4Z4zLhJrmI3LeiN9/GnLis3qERTlMWPx1WD1gxAzZtocSAOyxBpUljgPMlegtH6/dODK7ZmODiSDiR+BrYcGEyQ5xcJNoEDVJNo1rqkydt2cTZ7j5MeflK6243v6QTNudNd4XPvs96PLsZ+0H7rGlg4vfev8ASyf84W/5hqa03jeaaTEzFVq9IZNSQTaKcK1pQwdTZeZ1h6ew9lZLjL3fcYCATGpJswTU+Aqp9NdJs2bCdivgkQGttnxCKNBgxvLqwAVyTb9tfjPdiYhl7jJNgBoxo0AsB8bp5m94Wp9K9J4m0v7TFdLoAAEhrQAKMaScoMSd+qwwCPYQQgiCL/reRRd451EVrwk/X1Ci6ymGyPc39dEEi1d/6HhEpaKApCPFMgDfKrbdYrS61tdfdlICQNKpswiRNYtMECedt/kh2JM2ruERM2jTgguzN3N8yhUSUIPNBqpBw424X4eirlMLGt4cplyrlAKf0YlKHJA1UiZTUDTRXh0HxWKFY53vwCmjIBhe91Y6Y/w2MHmrHQzEA/kJnOP6mEyDz3rW2OWWx9Pfv9lro7xm1FRAIgiDciDetKmkRxmrbNkZisfhvaHMeII1mZkUoQQCDMyFrvUDpLtdn7Nx7+CQz/6yO4fCC38oWxYmHLmOzuaGEktaRD5ZAGJSaSSAN4K58o5f071fxNmcQ4F+HUte2TDZ/HAhjrcNx0FmwdZ9qwm5W4mcCga8B8RoCRmjx8l0nK/s3jFLS4h4JYC0ZDOUVJIOWJ46LB2noXY3uDX4LM7ml3dBYSG5Q50sIsXNHitb+mNG27rTtT2lpxMgIMhgDCZv3quA4AqnoTq9i7S4FrS3DmuIfu/kH43cB4kLoWB1f2VhGXZ2TUgul5ERBGcu1XqNOgFBQUgchwTfwYvR+xswWNw8OWsb3Q0iCXSXOcTALnOJqbUoso8/MgCmsx+iRppSdJuZJJ8vMrX+unSJwdmc1ph+KezG8Nu8/wCWn5xuWZNo0jrZ0wdpxyW5uzw5YwbxPefG90TyAXjkRTW6tY4EViZqddaevwU8ZrWgkfeMFsRFIn9l3kxli+Hp896bmvZBFI42j51Q+SMxmpvvi452UA6L+Xv3RaQnti30GkQUNCGgnx981I7oUore2tjOs68ksJkGorpJiDmFHDWQHDS8zRWho3/SFWW8fG0GnnrVYqxLtzpETaAG0Mg8TU1O9LMRU6132PprdGGyZsYjW6TmVMCw58PorA+24e/JCed38rf8jU0V5JKGlQzJkrjraRTpxUUk0MKxqraglVlIuCHGp5qCbvp8FGlwI4q/DePfoqMXICMhJECZpXVRa5blZbf1D2/s9rY2uXFBwzzPeYT+ZoH511UU8aE2JpSwvZcE2baThubiNuxwcKxVrg6PRd7DwaixqOVxz/VZ9Cva2ZmOAAqNYi4JmeEqLml+HDMSC4QMTDymKiSyZGkKeKTB0o74W+arOGMNjW4WGIaWAMZkYGtc8ZjoAAMzjvgqBjHb2hYGPBLc2bK7ITMEF4GXPABiZjkr81v201osLbtk7QPgkO7Mtac+IypcHgHJUVa2sTBIrJCswsdwYTiwxzWy5w+6cgBe9kkuyCSO9BvwQZQGs6etKrm3XzpDPtJYD3cNgYAP53DO/wCLG/lK6MzEnK5pBaYdNfukEgj09VxTb9p7R+LiOcSXvc9s1kPeTfg2Frz0qAeIAtGu/wCl0dsIuKGePu6xsyU1XRlkPc0UFa7jpp8D4qkPHLz3c0nC3x8vP9U8Jm73f6JoudFCPEV9/sgGkWMm/hpw+aiWWPOulBJv4eabG0PP4j9E0MQZtxmKVHGLmEiRXWRvtXga0FrV4IfW2ldNY+en6pPfMzJO+54VKBsjdT5JuxAK61EUNxetuapDlW8lBk5mb/fmhYmdCDzyn4qXw+ajC4OhlNRQmiYKiUShUMJ7uSiFIoFKlKimEFjV3LoDGz7NgPvmwsOeYYAfUFcKldl6i4mbYMCTYYjeUYr4HkQjL29sJyOgGaDnLop7lXudF1h7eYw3HiyTSoD2+uiyAdJkGbwY3AACovfdxoFWI97GAAjEfmG5lHPALoEiGB43A5axKxuksBgY9pwe1D3ZiyCWOflcQ7EABAbIHeLXd6JqJGaGki/OIG6tqV+KZJzW3GYvBPdJigtU7zFqhgbbtGIzZHveAHtwHvdlJAGI3CLobS2anmuLZoAG5dM6243Y4GKBMYjXNLWhzQHYzGtzue49+Dh4ggiR2jKCO9y/N7Cvmi1nyTe7T358lU2YjU0qY+KAVrTFgKszLHlW4dTE2ueE3+CaYue6ptqFMNUbfWnkVmbKwBrnOAtA5n0TTGK/nTx81XSvI+cUV2IFQ4QrKiuaqJIG/lpe3wUiQoEDelqwShVyhTTGMiFIohc2kYQmhAk0IhAlIpJwgSAE4QQqEumfZh0gHYWJs5+8x4e0U+4+jjU6OH/eFzVZ3Q/Sb9mxmYzCMzbg2e0/eY6NCPluQdv2pmZjmzctm1AC0n0BurZvqL+kkiF5ew9NYe04QxMF9iwvbHeZ32AsdoPvX1rGseqdUZRayoc4NzAESBBALgSATJA7rZExI4BOAfMehnWnjdNed0r0xg7MzNjPDSRLWirnxSGDWtJ04BBrn2mdJ5cBuzic2K4PO7IwkkXvny+S5kXLO6a6WdtOK7FxLkZWt0Y0TlaOUyd5JWAAkaWAeX6fVMikzXd4qsKbSgZPqrXbvZUCKiYrWhnwNUSqyycAm+kLKxNpEBgsBFtSZLp1iY8FgseVYZiTb3ZUTc+VS4wkXKDnq6IuKgXKRKgVAShCEFaSkUlhokJoQJEJoQKEJplAkSmgBAH3RJSSIVFuy7Q/DcHMe5rhZzTBoZjiJAMGi2XZuv8AtjRDuzxOLmw7zaWj0WqoQbXtP2gbY8EM7JnFrC4jlnc4ei1vbNsxMZ5fivc95/E4yfDQDgFQhAwYMpJohAwmkhBJpTBUQUIMntWgR9VB+ISqkSqJlyiSokoRkEpJlJGjznj5lCSEEQmiEFQJCaECQnCECQEQmgEQhCAhAQhAQhNCAQhCACEIQNwhJBQgYKAUIQCEIQCEk5QIoRKEAhCEAhOEIFCE0IFCE0IEhNCBITQgSE0IEhNCBITQgEIQgEIQgEIQgEIQgEIQgEk0IEhNCAQhCAQhCAQhCAQhCAQhCAQhCAQhCAQhCAQhCAQhCAQhCAQhCAQhCAQEIQCEIQf/2Q==" width="75px"></div>
+
+
+
+  <!-- these are the scripts put in so that i can access the java script and bootsrap files to stylize and run the webpage properly-->
+
+    <script src="week10.js"></script>
+    <script src="node_modules/jquery/dist/jquery.js"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+    
+</body>
+</html>
